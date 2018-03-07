@@ -2065,7 +2065,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #946af6;
+  background: #f5db45;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3245,4 +3245,7 @@ img:hover {
   text-align: center;
   color: #495a80;
   font-weight: 600;
+}
+.links-of-author {
+  margin-left: 32px;
 }
