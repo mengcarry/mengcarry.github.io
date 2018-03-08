@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://i1.piimg.com/567571/afbb6058c9f628ad.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/5e3de4efdcabd668.png">
 <meta property="og:image" content="http://p1.bpimg.com/567571/eaef5acfcb3011c2.png">
-<meta property="og:updated_time" content="2018-02-05T14:42:01.000Z">
+<meta property="og:updated_time" content="2018-03-08T08:00:43.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（三）">
 <meta name="twitter:description" content="经过前面两期文章，我相信你已经可以在本地建立一个非常令人满意的静态博客了，本篇文章将介绍如何将自己的静态博客部署到 gitpage 上，并托管到 github 上；以及关于 Hexo 和 NexT 中更深层次的一些问题及解方案。 一、菜单栏中标签与侧边栏中标签关联的问题　　以我的博客为例，关于菜单栏中的选项 与侧边栏中的选项，由于顶部菜单栏中位置有限，所以我就想在顶部菜单栏中不显示标签这一项，">
@@ -579,6 +579,8 @@
           
 
           
+            
+          
 
           
           
@@ -629,8 +631,7 @@
 <h2 id="六、图片模式"><a href="#六、图片模式" class="headerlink" title="六、图片模式"></a>六、图片模式</h2><p>新建博文，设置 <code>type: &quot;picture&quot;</code> ，使用 <code>{\% gp x-x \%}...{\% endgp \%}</code> 标签引用要展示的图片地址，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: Naruto-Pictures</span><br><span class="line">categories: [picture]</span><br><span class="line">tags: [picture,naruto]</span><br><span class="line">date: 2016-11-02 14:36:04</span><br><span class="line">type: &quot;picture&quot;</span><br><span class="line">---</span><br><span class="line">&#123;% gp 5-3 %&#125;</span><br><span class="line">![](http://oapjp6spr.bkt.clouddn.com/18210.jpg)</span><br><span class="line">![](http://oapjp6spr.bkt.clouddn.com/196232.jpg)</span><br><span class="line">![](http://oapjp6spr.bkt.clouddn.com/224147.jpg)</span><br><span class="line">![](http://oapjp6spr.bkt.clouddn.com/199301.jpg)</span><br><span class="line">![](http://oapjp6spr.bkt.clouddn.com/213318.jpg)</span><br><span class="line">&#123;% endgp %&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong> 图片展示效果 </strong><br><code>{\% gp 5-3 \%}</code>：设置图片展示效果，参考 <code>themes\next\scripts\tags\group-pictures.js</code> 注释示意图。<br><img src="http://p1.bpimg.com/567571/eaef5acfcb3011c2.png" alt=""><br><code>5-3</code> 的意思就是5张图片将会按照这种布局来展示，Next 提供了多张图片的多种布局，你可以随意选择。</p>
 <p></p><h3 style="color:#f63;">注意点</h3>主题目前首页可以正常显示设置的图片效果，但是点击进入后显示效果丢失，所以需要修改一下文件 <code>themes\next\source\css\_common\components\tags\group-pictures.styl</code> 中的以下样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.page-post-detail</span> <span class="selector-class">.post-body</span> <span class="selector-class">.group-picture-column</span> &#123;</span><br><span class="line">  // float: none;</span><br><span class="line">  <span class="selector-tag">margin-top</span>: 10<span class="selector-tag">px</span>;</span><br><span class="line">  // width: auto !important;</span><br><span class="line">  <span class="selector-tag">img</span> &#123; <span class="attribute">margin</span>: <span class="number">0</span> auto; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
-<p></p><h5 style="color:#f63;"><i>最后要说的是：</i></h5><p></p>
-<p id="div-border-top-green"><i><a href="https://github.com/Neveryu/Neveryu.github.io" target="_blank" rel="noopener">博客源码</a> ， 欢迎 star<br></i></p>
+
       
     </div>
     
@@ -787,6 +788,15 @@ var jiathis_config={
 
           
 
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDU0Ny8xMTA4NQ=="></div>
+    </div>
+
+  
+
+
+
         </div>
         
           
@@ -906,7 +916,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、菜单栏中标签与侧边栏中标签关联的问题"><span class="nav-number">1.</span> <span class="nav-text">一、菜单栏中标签与侧边栏中标签关联的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、关于High一下中的音乐多次点击重叠播放的解决方案"><span class="nav-number">2.</span> <span class="nav-text">二、关于High一下中的音乐多次点击重叠播放的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、关于github屏蔽vendors-，导致页面空白的解决方案"><span class="nav-number">3.</span> <span class="nav-text">三、关于github屏蔽vendors ，导致页面空白的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、关于如何获取自己的多说userid"><span class="nav-number">4.</span> <span class="nav-text">四、关于如何获取自己的多说userid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、关于如何修改内容区域宽度"><span class="nav-number">5.</span> <span class="nav-text">五、关于如何修改内容区域宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、图片模式"><span class="nav-number">6.</span> <span class="nav-text">六、图片模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">最后要说的是：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、菜单栏中标签与侧边栏中标签关联的问题"><span class="nav-number">1.</span> <span class="nav-text">一、菜单栏中标签与侧边栏中标签关联的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、关于High一下中的音乐多次点击重叠播放的解决方案"><span class="nav-number">2.</span> <span class="nav-text">二、关于High一下中的音乐多次点击重叠播放的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、关于github屏蔽vendors-，导致页面空白的解决方案"><span class="nav-number">3.</span> <span class="nav-text">三、关于github屏蔽vendors ，导致页面空白的解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、关于如何获取自己的多说userid"><span class="nav-number">4.</span> <span class="nav-text">四、关于如何获取自己的多说userid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、关于如何修改内容区域宽度"><span class="nav-number">5.</span> <span class="nav-text">五、关于如何修改内容区域宽度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、图片模式"><span class="nav-number">6.</span> <span class="nav-text">六、图片模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">注意点</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1106,6 +1116,17 @@ var jiathis_config={
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
