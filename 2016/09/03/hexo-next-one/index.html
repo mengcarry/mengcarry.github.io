@@ -94,13 +94,12 @@
 <meta property="og:site_name" content="mengcarry&#39;s blog">
 <meta property="og:description" content="简介Hexo 是一个快速、简洁且高效的静态站点生成框架，它基于 Node.js 。 它有以下特点：  　超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。 　支持MarkdownHexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。 　一键部署只需一条指令即可部署到Github Pages，或其他">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://p1.bqimg.com/567571/27324b740c9e91e2.png">
 <meta property="og:image" content="http://p1.bqimg.com/567571/8333728b5eaab526.png">
-<meta property="og:updated_time" content="2018-03-08T08:00:08.165Z">
+<meta property="og:updated_time" content="2018-03-12T07:08:27.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-NexT搭建个人博客（一）">
 <meta name="twitter:description" content="简介Hexo 是一个快速、简洁且高效的静态站点生成框架，它基于 Node.js 。 它有以下特点：  　超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。 　支持MarkdownHexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。 　一键部署只需一条指令即可部署到Github Pages，或其他">
-<meta name="twitter:image" content="http://p1.bqimg.com/567571/27324b740c9e91e2.png">
+<meta name="twitter:image" content="http://p1.bqimg.com/567571/8333728b5eaab526.png">
 
 
 
@@ -618,7 +617,7 @@
 <p>通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="noopener">标签插件</a> 来快速的插入特定形式的内容。</p>
 <p>基于 Hexo 这个优秀的博客框架，很多优秀的开发者奉献出了它们基于 Hexo 开发的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>。<br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a> 因其 <span id="yu-1">精于心，简于形</span> 的风格，一直被广大用户所喜爱。</p>
 <a id="more"></a>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装 Hexo 只需几分钟时间，若你在安装过程中遇到问题或无法找到解决方式，请<a href="https://neveryu.github.io/guestbook/" target="_blank" rel="noopener">提交问题</a>，我会尽力解决你的问题。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>安装 Hexo 只需几分钟时间，若你在安装过程中遇到问题或无法找到解决方式，请<a href="https://www.mengcarry.com/guestbook/" target="_blank" rel="noopener">提交问题</a>，我会尽力解决你的问题。</p>
 <h2 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h2><p>安装 Hexo 相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序:</p>
 <blockquote>
 <p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a><br><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a></p>
@@ -639,7 +638,7 @@
 <p>安装 Hexo 完成后，我们首先需要为我们的项目创建一个<span id="inline-green">指定文件夹</span>（例如我在 D 盘目录下创建了一个文件夹 blog 。<code>D:\blog</code> ），在指定文件夹中执行下列命令， Hexo 将会在指定文件夹中新建所需要的文件。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
 <p>等待安装，安装完成后，<span id="inline-green">指定文件夹</span> 的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└──</span><br></pre></td></tr></table></figure></p>
 <p>我们继续执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s --debug</span><br></pre></td></tr></table></figure></p>
-<p>Hexo 将 source 文件夹中除 _posts 文件夹之外，开头命名为 _(下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。<br>这个时候，我们在浏览器中访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，就可以看到基于 Hexo 的默认主题的原型：<br><img src="http://p1.bqimg.com/567571/27324b740c9e91e2.png" alt="hexo-next-one-1"></p>
+<p>Hexo 将 source 文件夹中除 _posts 文件夹之外，开头命名为 _(下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。<br>这个时候，我们在浏览器中访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，就可以看到基于 Hexo 的默认主题的原型。</p>
 <h2 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a>安装 NexT 主题</h2><h3 id="下载-NexT-主题"><a href="#下载-NexT-主题" class="headerlink" title="下载 NexT 主题"></a>下载 NexT 主题</h3><p>依旧是在当前目录下，使用 Git checkout 代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
 <p>等待下载完成。</p>
 <p id="div-border-left-yellow">在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>  我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
@@ -749,6 +748,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/02/ajax往后台传递参数时页面状态一直为400 bad request/" rel="next" title="ajax往后台传递参数时页面状态一直为400 bad request">
+                <i class="fa fa-chevron-left"></i> ajax往后台传递参数时页面状态一直为400 bad request
+              </a>
             
           </div>
 
@@ -870,7 +873,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -881,7 +884,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -892,7 +895,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -984,7 +987,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="color: #e90f92;">全站共 12.2k 字</span>
+  <span class="post-count" style="color: #e90f92;">全站共 13.9k 字</span>
 </div>
         
 <div class="busuanzi-count">
