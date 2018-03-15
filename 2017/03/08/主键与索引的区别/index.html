@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="mengcarry&#39;s blog">
 <meta property="og:description" content="问 题 一什么是主键？什么是索引？  主键是表中的一个或多个字段，它的值用于惟一地标识表中的某一条记录.且不能为空; 索引是对数据库表中一列或多列的值进行排序的一种结构，只有当经常查询索引列中的数据时，才需要在表上创建索引，使用索引可快速访问数据库表中的特定信息。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-15T14:06:16.688Z">
+<meta property="og:updated_time" content="2018-03-15T14:20:21.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="主键与索引的区别">
 <meta name="twitter:description" content="问 题 一什么是主键？什么是索引？  主键是表中的一个或多个字段，它的值用于惟一地标识表中的某一条记录.且不能为空; 索引是对数据库表中一列或多列的值进行排序的一种结构，只有当经常查询索引列中的数据时，才需要在表上创建索引，使用索引可快速访问数据库表中的特定信息。">
@@ -616,6 +616,37 @@
 <p>建立索引常用的规则如下：<br>1、表的主键、外键必须有索引；<br>2、数据量超过300的表应该有索引；<br>3、经常与其他表进行连接的表，在连接字段上应该建立索引；<br>4、经常出现在Where子句中的字段，特别是大表的字段，应该建立索引；<br>5、索引应该建在选择性高的字段上；<br>6、索引应该建在小字段上，对于大的文本字段甚至超长字段，不要建索引；<br>7、复合索引的建立需要进行仔细分析；尽量考虑用单字段索引代替：<br>8、频繁进行数据操作的表，不要建立太多的索引；<br>9、删除无用的索引，避免对执行计划造成负面影响；<br>以上是一些普遍的建立索引时的判断依据。一言以蔽之，索引的建立必须慎重，对每个索引的必要性都应该经过仔细分析，要有建立的依据。因为太多的索引与不充分、不正确的索引对性能都毫无益处：在表上建立的每个索引都会增加存储开销，索引对于插入、删除、更新操作也会增加处理上的开销。另外，过多的复合索引，在有单字段索引的情况下，一般都是没有存在价值的；相反，还会降低数据增加删除时的性能，特别是对频繁更新的表来说，负面影响更大。</p>
 <h1 id="问-题-三"><a href="#问-题-三" class="headerlink" title="问 题 三"></a>问 题 三</h1><p>一般索引都建在主键上表示唯一索引吗？只要建在主键上的索引就自动成为唯一索引吗？</p>
 <p>索引建在主键上就是唯一索引，但是唯一索引不一定建在主键上，因为唯一索引可以有多个。<br>主键与索引的区别如下：<br>    主键是一种约束，唯一索引是一种索引，两者在本质上是不同的。<br>    主键创建后一定包含一个唯一性索引，唯一性索引并不一定就是主键。<br>    唯一性索引列允许空值，而主键列不允许为空值。<br>    主键列在创建时，已经默认不为空值 + 唯一索引了。<br>    主键可以被其他表引用为外键，而唯一索引不能。<br>    一个表最多只能创建一个主键，但可以创建多个唯一索引。<br>    主键更适合那些不容易更改的唯一标识，如自动递增列、身份证号等。<br>    建在主键上的索引就是唯一索引。</p>
+<h1 id="问-题-四"><a href="#问-题-四" class="headerlink" title="问 题 四"></a>问 题 四</h1><p>mysql 如何创建索引</p>
+<p>1.添加PRIMARY KEY（主键索引）<br>mysql&gt;ALTER TABLE ‘table_name’ ADD PRIMARY KEY ( ‘column’ )<br>2.添加UNIQUE(唯一索引)<br>mysql&gt;ALTER TABLE ‘table_name’ ADD UNIQUE (<br>‘column’<br>)<br>3.添加INDEX(普通索引)<br>mysql&gt;ALTER TABLE ‘table_name’ ADD INDEX index_name ( ‘column’ )<br>4.添加FULLTEXT(全文索引)<br>mysql&gt;ALTER TABLE ‘table_name’ ADD FULLTEXT ( ‘column’)<br>5.添加多列索引<br>mysql&gt;ALTER TABLE ‘table_name’ ADD INDEX index_name ( ‘column1’, ‘column2’, ‘column3’ )</p>
+<p>下面是更加详细的方法</p>
+<p>MySQL中可以使用alter table这个SQL语句来为表中的字段添加索引。</p>
+<p>使用alter table语句来为表中的字段添加索引的基本语法是：<br>ALTER TABLE &lt;表名&gt; ADD INDEX (&lt;字段&gt;);</p>
+<p>我们来尝试为test中t_name字段添加一个索引。</p>
+<p>mysql&gt; alter table test add index(t_name);<br>Query OK, 0 rows affected (0.17 sec)<br>Records: 0  Duplicates: 0  Warnings: 0</p>
+<p>执行成功后，我们来看看结果。</p>
+<p>mysql&gt; describe test;<br>+————+————-+——+—–+———+——-+<br>| Field      | Type        | Null | Key | Default | Extra |<br>+————+————-+——+—–+———+——-+<br>| t_id       | int(11)     | YES  |     | NULL    |       |<br>| t_name     | varchar(50) | NO   | MUL | NULL    |       |<br>| t_password | char(32)    | YES  |     | NULL    |       |<br>| t_birth    | date        | YES  |     | NULL    |       |<br>+————+————-+——+—–+———+——-+<br>4 rows in set (0.00 sec)</p>
+<p>结果可以看出，t_name字段的Key这一栏由原来的空白变成了MUL。这个MUL是什么意思呢？简单解释一下：如果Key是MUL，那么该列的值可以重复，该列是一个非唯一索引的前导列(第一列)或者是一个唯一性索引的组成部分但是可以含有空值NULL。</p>
+<h1 id="问-题-五"><a href="#问-题-五" class="headerlink" title="问 题 五"></a>问 题 五</h1><p>Oracle如何创建索引？</p>
+<p>当我们在某本书中查找特定的章节内容时，可以先从书的目录着手，找到该章节所在的页码，然后快速的定位到该页。这种做法的前提是页面编号是有序的。如果页码无序，就只能从第一页开始，一页页的查找了。</p>
+<p>数据库中索引(Index)的概念与目录的概念非常类似。如果某列出现在查询的条件中，而该列的数据是无序的，查询时只能从第一行开始一行一行的匹配。创建索引就是对某些特定列中的数据排序，生成独立的索引表。在某列上创建索引后，如果该列出现在查询条件中，Oracle会自动的引用该索引，先从索引表中查询出符合条件记录的ROWID，由于ROWID是记录的物理地址，因此可以根据ROWID快速的定位到具体的记录，表中的数据非常多时，引用索引带来的查询效率非常可观。</p>
+<p>·如果表中的某些字段经常被查询并作为查询的条件出现时，就应该考虑为该列创建索引。</p>
+<p>·当从很多行的表中查询少数行时，也要考虑创建索引。有一条基本的准则是：当任何单个查询要检索的行少于或者等于整个表行数的10%时，索引就非常有用。</p>
+<p>Oracle数据库会为表的主键和包含唯一约束的列自动创建索引。索引可以提高查询的效率，但是在数据增删改时需要更新索引，因此索引对增删改时会有负面影响。</p>
+<p>语法结构：创建索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE] INDEX index_name ON table_name(column_name[,column_name…])</span><br></pre></td></tr></table></figure></p>
+<p>语法解析：</p>
+<ol>
+<li><p>UNIQUE:指定索引列上的值必须是唯一的。称为唯一索引。</p>
+</li>
+<li><p>index_name：指定索引名。</p>
+</li>
+<li><p>tabl_name：指定要为哪个表创建索引。</p>
+</li>
+<li><p>column_name：指定要对哪个列创建索引。我们也可以对多列创建索引;这种索引称为组合索引。</p>
+</li>
+</ol>
+<p>例子：</p>
+<p>为EMP表的ENAME列创建创建唯一索引，为EMP表的工资列创建普通索引，把JOB列先变为小写再创建索引。</p>
+<p>代码演示：创建索引<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt; CREATE UNIQUE INDEX UQ_ENAME_IDX ON EMP(ENAME);  ①</span><br><span class="line"></span><br><span class="line">Index created</span><br><span class="line"></span><br><span class="line">SQL&gt; CREATE INDEX IDX_SAL ON EMP(SAL);  ②</span><br><span class="line"></span><br><span class="line">Index created</span><br><span class="line"></span><br><span class="line">SQL&gt; CREATE INDEX IDX_JOB_LOWER ON EMP(LOWER(JOB));  ③</span><br><span class="line"></span><br><span class="line">Index created</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -830,7 +861,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -852,7 +883,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -901,7 +932,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-一"><span class="nav-number">1.</span> <span class="nav-text">问 题 一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-二"><span class="nav-number">2.</span> <span class="nav-text">问 题 二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-三"><span class="nav-number">3.</span> <span class="nav-text">问 题 三</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-一"><span class="nav-number">1.</span> <span class="nav-text">问 题 一</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-二"><span class="nav-number">2.</span> <span class="nav-text">问 题 二</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-三"><span class="nav-number">3.</span> <span class="nav-text">问 题 三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-四"><span class="nav-number">4.</span> <span class="nav-text">问 题 四</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问-题-五"><span class="nav-number">5.</span> <span class="nav-text">问 题 五</span></a></li></ol></div>
             
 
           </div>
@@ -944,7 +975,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count" style="color: #e90f92;">全站共 14.9k 字</span>
+  <span class="post-count" style="color: #e90f92;">全站共 18.0k 字</span>
 </div>
         
 <div class="busuanzi-count">
