@@ -174,4 +174,15 @@
         <tag>前端</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[JAVA-API解释说明]]></title>
+    <url>%2F2015%2F09%2F01%2FjavaAPI%2F</url>
+    <content type="text"><![CDATA[问 题 : 什么是JavaAPI?Java-API分为两个意思； 一种是应用程序接口，API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。 另外一种意思就是本文所说的是一种对API应用程序接口的解释、说明，便于我们使用里面的接口、类和方法。JAVA API文档提供了很多官方的介绍和类、方法、变量的解释。一般很系统，涉及所有的方面，如果开发人员对正在使用的类不熟悉，想查看类里面的变量或者方法，就可以打开JavaAPI文档进行阅读和查看。]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
 </search>
